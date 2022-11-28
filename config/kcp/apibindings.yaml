@@ -1,0 +1,10 @@
+apiVersion: apis.kcp.dev/v1alpha1
+kind: APIBinding
+metadata:
+  name: kyverno-required-resources
+spec:
+  reference:
+    workspace:
+      path: root:policy-control-cluster
+      exportName: kubernetes
+      

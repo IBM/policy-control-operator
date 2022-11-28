@@ -1,0 +1,31 @@
+apiVersion: ibm.github.com/v1alpha1
+kind: PolicyControl
+metadata:
+  name: pccr-edge1
+spec:
+  workspace: root:edge1
+  policy_control_cluster:
+    namespace: default
+    ingressName: policy-control-cluster
+    ingressHost: policy-control-cluster.local
+    ingressPort: 19443
+    ingressTLSSecret:
+      name: policy-control-cluster-tls-secret
+      keyForPrivKey: tls.key
+      keyForCert: tls.crt
+      keyForCacert: ca.crt
+    kcpKubeConfigSecret:
+      name: kcp-kubeconfig-secret
+      key: kubeconfig.yaml
+  kyverno_in_workspace:
+    namespaceForAPIResources: kyverno
+    kyvernoImage: kyverno-local:1.0.0
+  kyverno_in_cluster:
+    installNamespace: kyverno-incluster
+    operatorGroup:
+      name: kyverno-operator-group
+    subscription:
+      name: kyverno-operator
+      olmNamespace: olm
+    kyvernoCR:
+      name: kyverno
