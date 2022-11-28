@@ -1,0 +1,31 @@
+apiVersion: ibm.github.com/v1alpha1
+kind: PolicyControl
+metadata:
+  name: <name>
+spec:
+  workspace: <workspace name>
+  policy_control_cluster:
+    namespace: <namepsace in Policy Control Operator cluster to which Kcp Kubeconfig secret and Ingress TLS secret are placed and ingress resource, Kyverno deployments and service will be deployed.>
+    ingressName: <ingress name>
+    ingressHost: <ingress host>
+    ingressPort: <ingress port>
+    ingressTLSSecret:
+      name: <Secret name for Ingress TLS in the namespace>
+      keyForPrivKey: <Key name in the secret data for TLS key>
+      keyForCert: <Key name in the secret data for TLS Certificate>
+      keyForCacert: <Key name in the secret data for TLS CA Certificate>
+    kcpKubeConfigSecret:
+      name: <Secreat name for KCP KubeConfig of KCP in the namepace>
+      key: <Key name in the secret data>
+  kyverno_in_workspace:
+    namespaceForAPIResources: kyverno
+    kyvernoImage: <Kyverno image name and tag>
+  kyverno_in_cluster:
+    installNamespace: kyverno-incluster
+    operatorGroup:
+      name: kyverno-operator-group
+    subscription:
+      name: kyverno-operator
+      olmNamespace: olm
+    kyvernoCR:
+      name: kyverno

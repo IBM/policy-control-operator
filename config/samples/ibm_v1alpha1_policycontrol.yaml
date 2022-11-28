@@ -1,0 +1,13 @@
+apiVersion: ibm.github.com/v1alpha1
+kind: PolicyControl
+metadata:
+  labels:
+    app.kubernetes.io/name: policycontrol
+    app.kubernetes.io/instance: policycontrol-sample
+    app.kubernetes.io/part-of: policy-control-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: policy-control-operator
+  name: policycontrol-sample
+spec:
+  workspace: "root:edge1"
+  pco_name: "pco"
