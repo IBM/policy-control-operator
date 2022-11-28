@@ -1,5 +1,5 @@
 # policy-control-operator
-This is a PoC for [the design proposal of "Policy Control for KCP/Edge"](https://docs.google.com/document/d/1pdqbZa53b9No5q49KVmsQtpMcgBTZcThseoKbdJSapY).
+This is a PoC for [the design proposal of "Policy Control for KCP/Edge"](https://docs.google.com/document/d/1mmv-OXLjcjzFl1UjXYS7t5hzynzS8FIqrEkMebrjkEo/edit?usp=sharing).
 
 In the design, we introduce an controller who runs on a cluster in a service provider and enables policy control functions on both KCP workspace level and the managed clusters. The service cluster (policy control operator cluster) is also bound to a dedicated workspace so users who define policies just interact with KCP and don't need to interact with individual managed clusters. In this PoC, we use [Operator Framework](https://sdk.operatorframework.io/) and choose [Kyverno](https://kyverno.io/) the engine of policy control.
 
